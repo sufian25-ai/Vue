@@ -1,6 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import TodoList from './components/todoList.vue'
 const patientName = ref('')
+
+const firstName = ref('Mahbub')
+const lastName = ref('Sufian')
+
+const fullName = computed(()=> {
+  return firstName.value + " " + lastName.value
+})
+
+const price = ref(1000)
+const discount = ref(10)
+
+const discountPrice = computed(()=> {
+  return price.value - (price.value * discount.value / 100)
+})
 
 const doctor = {
   name: 'Dr. Raman',
@@ -26,9 +41,11 @@ const doctors = [
     photo: 'images/lee.jpg'
   }
 ]
+
 </script>
 
 <template>
+
   <div class="app-container">
     <header class="header">
       <h1>Medical Appointment System</h1>
@@ -75,6 +92,16 @@ const doctors = [
       </div>
     </section>
   </div>
+  <br />
+  <p>First: {{ firstName }}</p>
+  <p>Last: {{ lastName }}</p>
+  <p>Full Name: {{ fullName }}</p>
+  <br />
+  <p>Price: {{ price }}</p>
+  <p>discount: {{ discount }}</p>
+  <p>Discount Price: {{ discountPrice }}</p>
+
+<TodoList />
 </template>
 
 <style scoped>
