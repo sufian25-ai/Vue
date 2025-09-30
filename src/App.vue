@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import TodoList from './components/todoList.vue'
+import Doctor from './components/Doctor.vue'
 const patientName = ref('')
 
 const firstName = ref('Mahbub')
@@ -102,6 +103,7 @@ const doctors = [
   <p>Discount Price: {{ discountPrice }}</p>
 
 <TodoList />
+<Doctor />
 </template>
 
 <style scoped>
